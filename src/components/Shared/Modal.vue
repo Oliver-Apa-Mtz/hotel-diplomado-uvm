@@ -24,10 +24,18 @@
                 </v-card-actions>
             </v-card>
         </v-dialog>
+        <v-snackbar v-model="snackbar">
+            Datos incorrectos, intente de nuevo
+            <template v-slot:action="{ attrs }">
+                <v-btn color="pink" text v-bind="attrs" @click="snackbar = false">Close</v-btn>
+            </template>
+        </v-snackbar>
     </v-row>
 </template>
 
 <script>
+import {user} from '../../plugins/constants.js';
+
 export default {
     name: 'Modal',
     props: ['status'],
@@ -35,14 +43,12 @@ export default {
         return {
             email: '',
             password: '',
-            dataLogin: {
-                email: 'oliver@test.com',
-                password: '123456789'
-            },
+            snackbar: false,
             rules: {
                 email: [val => (val || '').length > 0 || 'This field is required'],
                 password: [val => (val || '').length > 0 || 'This field is required']
-            }
+            },
+            dataUser: user
         }
     },
     computed: {
@@ -58,7 +64,12 @@ export default {
             this.$emit('closeModal')
         },
         login: function(){
-
+            if(this.dataUser.email == this.email && this.dataUser.password == this.password){
+                this.$emit('closeModal')
+                this.$router.push({name: 'Admin', params: { dataUser: this.dataUser }})
+            }else{
+                this.snackbar = true
+            }
         }
     }
 }

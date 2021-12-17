@@ -6,13 +6,13 @@
             </v-col> 
         </v-row>
         <v-row class="Carousel__container">
-            <v-col sm="4">
+            <v-col cols="12" sm="6" md="4">
                <Card class="Carousel__item" :id="'card1'" :data="data1"></Card>
             </v-col>
-            <v-col sm="4">
+            <v-col cols="12" sm="6" md="4">
                <Card class="Carousel__item" :id="'card2'" :data="data2"></Card>
             </v-col> 
-            <v-col sm="4">
+            <v-col cols="12" sm="6" md="4">
                <Card class="Carousel__item" :id="'card3'" :data="data3"></Card>
             </v-col> 
         </v-row>
@@ -61,5 +61,13 @@ export default {
 }
 .Carousel__item{
     margin-left: 50px;
+}
+@media(max-width: 1023px){
+    .Carousel__container{
+        width: 100%;
+    }
+    .Carousel__item{
+        margin: 0 auto;
+    }
 }
 </style>

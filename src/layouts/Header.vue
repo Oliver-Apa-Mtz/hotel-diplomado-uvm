@@ -1,10 +1,10 @@
 <template>
     <header class="Header">
         <v-row>
-            <v-col sm="4 d-flex align-center">
+            <v-col sm="2" md="4" class="d-flex align-center">
                 <router-link class="Header__title" to="/">HP</router-link>
             </v-col>
-            <v-col sm="8 d-flex align-center justify-end">
+            <v-col sm="10" md="8" class="d-flex align-center justify-end">
                 <nav class="Header__nav d-flex">
                     <a @click="statusModal = true">Login</a>
                     <router-link to="/habitaciones">Habitaciones</router-link>
@@ -57,5 +57,18 @@ export default {
     font-size: 1rem;
     margin-right: 20px;
     font-weight: 300;
+}
+@media(max-width: 600px){
+    .Header{
+        height: 50px;
+        padding: 0 10px;
+    }
+    .Header__title{
+        font-size: 2rem;
+    }
+    .Header__nav a{
+        margin-right: 10px;
+        font-size: .8rem;
+    }
 }
 </style>

@@ -36,7 +36,10 @@ export default {
 .Footer{
     width: 100vw;
     height: 80px;
-    background-color: #FF5F7E;
+    
     padding: 0 20px;
+}
+.Footer .teal{
+    background-color: #FF5F7E !important;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="Card">
+    <div class="Card" @click="goDetail(data)">
         <div class="Card__image" :id="id"></div>
         <div class="Card__text">
             <p class="Card__text__title">{{data.name}}</p>
@@ -11,9 +11,15 @@
 <script>
 export default {
     name: 'Card',
-    props: ['id', 'data'],
+    props: ['id', 'data', 'active'],
     data () {
         return {
+            
+        }
+    },
+    methods: {
+        goDetail: function(data) {
+            this.active ? this.$router.push({name: 'HabitacionDetail', params: { id: data.id, dataRoom: data }}) : ''
             
         }
     }
@@ -25,7 +31,7 @@ export default {
     height: 320px;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0px 4px 6px rgba(0,0,0,.1);
+    box-shadow: 0px 3px 6px rgba(0,0,0,.08);
 }
 .Card__image{
     width: 100%;
@@ -53,5 +59,17 @@ export default {
 }
 #card3{
     background-image: url(../../assets/slider-3.jpg);
+}
+#card4{
+    background-image: url(../../assets/slider-4.jpg);
+}
+#card5{
+    background-image: url(../../assets/slider-5.jpg);
+}
+#card6{
+    background-image: url(../../assets/slider-6.jpg);
+}
+#card7{
+    background-image: url(../../assets/slider-7.jpg);
 }
 </style>
