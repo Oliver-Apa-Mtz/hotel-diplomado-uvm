@@ -34,7 +34,6 @@ export default {
     name: 'Admin',
     data () {
         return {
-            dataUser: {},
             tab: null,
             items: [
                 'Visitantes', 'Comentarios',
@@ -103,8 +102,7 @@ export default {
         }
     },
     mounted: async function (){
-        if(this.$route.params.dataUser){
-            this.dataUser = this.$route.params.dataUser
+        if(localStorage.getItem('userHotel')){
             await this.getUsers()
             await this.getComments()
         }else{

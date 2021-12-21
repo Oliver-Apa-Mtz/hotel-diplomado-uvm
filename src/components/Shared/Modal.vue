@@ -66,7 +66,9 @@ export default {
         login: function(){
             if(this.dataUser.email == this.email && this.dataUser.password == this.password){
                 this.$emit('closeModal')
-                this.$router.push({name: 'Admin', params: { dataUser: this.dataUser }})
+                localStorage.setItem('userHotel', true);
+                this.$emit('updateToken')
+                this.$router.push({name: 'Admin'})
             }else{
                 this.snackbar = true
             }

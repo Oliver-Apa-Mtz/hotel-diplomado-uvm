@@ -1,6 +1,6 @@
 <template>
 	<v-app>
-		<Header></Header>
+		<Header :tokenUser="tokenUser" @updateToken="checkUser"></Header>
 		<router-view></router-view>
 		<Footer></Footer>
 	</v-app>
@@ -16,9 +16,23 @@ export default {
 		Header,
 		Footer
 	},
-	data: () => ({
-		
-	}),
+	data() { 
+		return{
+			tokenUser: false
+		}
+	},
+	methods: {
+		checkUser: function(){
+			if(localStorage.getItem('userHotel')){
+				this.tokenUser = true
+			}else{
+				this.tokenUser = false
+			}
+		}
+	},
+	mounted: async function (){
+        this.checkUser()
+    }
 };
 </script>
 

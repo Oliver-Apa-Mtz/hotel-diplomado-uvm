@@ -6,9 +6,11 @@
             </v-col> 
            <v-col cols="12" sm="12" md="6" class="d-flex justify-center align-center">
                <div class="Home__title">
-                   <h1>Hotel Pleasure</h1>
-                   <h2>Disfruta de unas increibles y magnificas vacaciones</h2>
-                   <v-btn x-large rounded color="normal" dark>Ver habitaciones</v-btn>
+                    <h1>Hotel Pleasure</h1>
+                    <h2>Disfruta de unas increibles y magnificas vacaciones</h2>
+                    <router-link to="/habitaciones">
+                        <v-btn x-large rounded color="normal" dark>Ver habitaciones</v-btn>
+                    </router-link>
                </div>
            </v-col>
         </v-row>
