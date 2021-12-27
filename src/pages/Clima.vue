@@ -29,6 +29,13 @@
                     </v-col>
                 </v-row>
             </div>
+            <div v-if="dataClima.success == false" class="Bebidas__cards">
+                <v-row>
+                    <v-col sm="12" class="d-flex justify-center">
+                        <h3 class="Bebidas__cards__title">No se encontraron resultados en la busqueda</h3>
+                    </v-col> 
+                </v-row>
+            </div>
         </v-row>
     </div>
 </template>
